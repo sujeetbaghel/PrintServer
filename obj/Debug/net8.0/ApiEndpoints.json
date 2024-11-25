@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "PrintServer.Controllers.PrintController",
+    "Method": "PrintDocument",
+    "RelativePath": "api/Print/print",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PrintServer.Models.PrintRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

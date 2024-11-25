@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|c:\\users\\rajpo\\source\\repos\\printserver\\controllers\\printcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|solutionrelative:controllers\\printcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|c:\\users\\rajpo\\source\\repos\\printserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|c:\\users\\rajpo\\source\\repos\\printserver\\printserver.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|solutionrelative:printserver.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|c:\\users\\rajpo\\source\\repos\\printserver\\model\\printrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8662F31D-4FF7-4525-AD00-0912888EE8FB}|PrintServer.csproj|solutionrelative:model\\printrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrintController.cs",
+              "DocumentMoniker": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Controllers\\PrintController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PrintController.cs",
+              "ToolTip": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Controllers\\PrintController.cs",
+              "RelativeToolTip": "Controllers\\PrintController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwEcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T16:50:11.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PrintServer.http",
+              "DocumentMoniker": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\PrintServer.http",
+              "RelativeDocumentMoniker": "PrintServer.http",
+              "ToolTip": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\PrintServer.http",
+              "RelativeToolTip": "PrintServer.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-11-25T16:39:04.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T16:16:44.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PrintRequest.cs",
+              "DocumentMoniker": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Model\\PrintRequest.cs",
+              "RelativeDocumentMoniker": "Model\\PrintRequest.cs",
+              "ToolTip": "C:\\Users\\rajpo\\source\\repos\\PrintServer\\Model\\PrintRequest.cs",
+              "RelativeToolTip": "Model\\PrintRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T16:14:39.046Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
