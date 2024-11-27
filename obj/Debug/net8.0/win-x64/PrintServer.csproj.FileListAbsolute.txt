@@ -33,3 +33,6 @@ C:\Users\rajpo\source\repos\PrintServer\obj\Debug\net8.0\win-x64\refint\PrintSer
 C:\Users\rajpo\source\repos\PrintServer\obj\Debug\net8.0\win-x64\PrintServer.pdb
 C:\Users\rajpo\source\repos\PrintServer\obj\Debug\net8.0\win-x64\PrintServer.genruntimeconfig.cache
 C:\Users\rajpo\source\repos\PrintServer\obj\Debug\net8.0\win-x64\ref\PrintServer.dll
+C:\Users\rajpo\source\repos\PrintServer\obj\Debug\net8.0\win-x64\PrintServer.sourcelink.json
+C:\Users\rajpo\source\repos\PrintServer\bin\Debug\net8.0\win-x64\PdfiumViewer.dll
+C:\Users\rajpo\source\repos\PrintServer\bin\Debug\net8.0\win-x64\nl\PdfiumViewer.resources.dll

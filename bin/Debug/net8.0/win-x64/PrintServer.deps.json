@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v8.0/win-x64": {
       "PrintServer/1.0.0": {
         "dependencies": {
+          "PdfiumViewer": "2.2.0",
           "Swashbuckle.AspNetCore": "6.4.0",
           "System.Drawing.Common": "9.0.0"
         },
@@ -30,6 +31,19 @@
           "runtimes/win/lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.24.52809"
+          }
+        }
+      },
+      "PdfiumViewer/2.2.0": {
+        "runtime": {
+          "lib/net20/PdfiumViewer.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        },
+        "resources": {
+          "lib/net20/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
           }
         }
       },
@@ -114,6 +128,13 @@
       "sha512": "sha512-z8FfGIaoeALdD+KF44A2uP8PZIQQtDGiXsOLuN8nohbKhkyKt7zGaZb+fKiCxTuBqG22Q7myIAioSWaIcOOrOw==",
       "path": "microsoft.win32.systemevents/9.0.0",
       "hashPath": "microsoft.win32.systemevents.9.0.0.nupkg.sha512"
+    },
+    "PdfiumViewer/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ltMfVwPNOkkE85JG8wT7t9PeE+RPjs1zajPLk6NxWmQ3y/QPaBzJf1tqgYRbYxj6iGSYisSp5A9ERfAEudefCQ==",
+      "path": "pdfiumviewer/2.2.0",
+      "hashPath": "pdfiumviewer.2.2.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",

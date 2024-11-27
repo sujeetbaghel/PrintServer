@@ -5,8 +5,9 @@
     using PrintServer.Models;
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
     using System.Drawing.Printing;
+    using System.IO;
+
 
     [ApiController]
     [Route("api/[controller]")]
@@ -17,8 +18,8 @@
         // Dictionary to map document types to printers
         private readonly Dictionary<string, string> _printerMapping = new Dictionary<string, string>
         {
-            { "Sticker", "Microsoft Print to PDF" },
-            { "Invoice", "InvoicePrinterName" },
+            { "Invoice", "Microsoft Print to PDF" },
+            { "Letter", "LetterPrinter" },
             { "Receipt", "ReceiptPrinterName" },
             { "Certificate", "CertificatePrinterName" }
         };
@@ -37,6 +38,8 @@
             if (!_printerMapping.TryGetValue(request.DocumentType, out var printerName))
                 return BadRequest("Invalid DocumentType.");
 
+            string tempFilePath = null;
+
             try
             {
                 if (!OperatingSystem.IsWindows())
@@ -46,12 +49,17 @@
 
                 _logger.LogInformation($"Attempting to print '{request.DocumentType}' on printer '{printerName}'.");
 
-                #pragma warning restore CA1416
-                PrintToPrinter(printerName, request.DocumentData);
-                #pragma warning disable CA1416
+                // Decode the Base64 PDF data
+                byte[] pdfBytes = Convert.FromBase64String(request.DocumentData);
+
+                // Save the PDF to a temporary file
+                tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.pdf");
+                System.IO.File.WriteAllBytes(tempFilePath, pdfBytes);
+
+                // Print the PDF file
+                PrintPdf(printerName, tempFilePath);
 
                 _logger.LogInformation($"Document of type '{request.DocumentType}' sent to printer '{printerName}' successfully.");
-
                 return Ok($"Document of type '{request.DocumentType}' sent to printer '{printerName}' successfully.");
             }
             catch (PlatformNotSupportedException ex)
@@ -64,33 +72,50 @@
                 _logger.LogError($"Error while processing print request: {ex.Message}");
                 return StatusCode(500, $"An error occurred: {ex.Message}");
             }
+            finally
+            {
+                // Ensure the temporary file is deleted
+                if (tempFilePath != null && System.IO.File.Exists(tempFilePath))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(tempFilePath);
+                    }
+                    catch (Exception deleteEx)
+                    {
+                        _logger.LogWarning($"Failed to delete temporary file: {tempFilePath}. Exception: {deleteEx.Message}");
+                    }
+                }
+            }
         }
 
-        private void PrintToPrinter(string printerName, string documentContent)
+        private void PrintPdf(string printerName, string filePath)
         {
-            PrintDocument printDocument = new PrintDocument
+            // Load the PDF document from the file
+            using (var pdfDocument = PdfiumViewer.PdfDocument.Load(filePath))
             {
-                PrinterSettings = new PrinterSettings
+                // Setup the printer settings
+                var printerSettings = new PrinterSettings
                 {
                     PrinterName = printerName
+                };
+
+                // Setup the default page settings
+                var pageSettings = new PageSettings(printerSettings)
+                {
+                    Margins = new Margins(0, 0, 0, 0)
+                };
+
+                // Use the PrintController to print the document
+                using (var printDocument = pdfDocument.CreatePrintDocument())
+                {
+                    printDocument.PrinterSettings = printerSettings;
+                    printDocument.DefaultPageSettings = pageSettings;
+
+                    // Print the document
+                    printDocument.Print();
                 }
-            };
-
-            printDocument.PrintPage += (sender, e) =>
-            {
-                Font font = new Font("Arial", 12);
-                Brush brush = Brushes.Black;
-                PointF startPoint = new PointF(100, 100);
-
-                e.Graphics.DrawString(documentContent, font, brush, startPoint);
-            };
-
-            if (!printDocument.PrinterSettings.IsValid)
-            {
-                throw new Exception($"The printer '{printerName}' is not available.");
             }
-
-            printDocument.Print();
         }
     }
 }
