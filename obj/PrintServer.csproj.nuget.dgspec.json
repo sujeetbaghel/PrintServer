@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.14.4, )"
             },
+            "RawPrint.NetStd": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

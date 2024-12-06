@@ -3,11 +3,12 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using PrintServer.Models;
+    using RawPrint;
     using System;
     using System.Collections.Generic;
-    using System.Drawing.Printing;
     using System.IO;
-
+    using System.Reflection;
+    using RawPrint.NetStd;
 
     [ApiController]
     [Route("api/[controller]")]
@@ -56,8 +57,8 @@
                 tempFilePath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.pdf");
                 System.IO.File.WriteAllBytes(tempFilePath, pdfBytes);
 
-                // Print the PDF file
-                PrintPdf(printerName, tempFilePath);
+                // Print the raw file
+                PrintRawFile(printerName, tempFilePath, $"{request.DocumentType}.pdf");
 
                 _logger.LogInformation($"Document of type '{request.DocumentType}' sent to printer '{printerName}' successfully.");
                 return Ok($"Document of type '{request.DocumentType}' sent to printer '{printerName}' successfully.");
@@ -89,32 +90,22 @@
             }
         }
 
-        private void PrintPdf(string printerName, string filePath)
+        private void PrintRawFile(string printerName, string filePath, string fileName)
         {
-            // Load the PDF document from the file
-            using (var pdfDocument = PdfiumViewer.PdfDocument.Load(filePath))
+            try
             {
-                // Setup the printer settings
-                var printerSettings = new PrinterSettings
-                {
-                    PrinterName = printerName
-                };
+                // Create an instance of the Printer
+                IPrinter printer = new Printer();
 
-                // Setup the default page settings
-                var pageSettings = new PageSettings(printerSettings)
-                {
-                    Margins = new Margins(0, 0, 0, 0)
-                };
+                // Print the raw file to the specified printer
+                printer.PrintRawFile(printerName, filePath, fileName);
 
-                // Use the PrintController to print the document
-                using (var printDocument = pdfDocument.CreatePrintDocument())
-                {
-                    printDocument.PrinterSettings = printerSettings;
-                    printDocument.DefaultPageSettings = pageSettings;
-
-                    // Print the document
-                    printDocument.Print();
-                }
+                _logger.LogInformation($"File '{fileName}' printed successfully on printer '{printerName}'.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to print file '{fileName}' on printer '{printerName}': {ex.Message}");
+                throw;
             }
         }
     }

@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="PdfiumViewer.Updated" Version="2.14.4" />
+    <PackageReference Include="RawPrint.NetStd" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
   </ItemGroup>
